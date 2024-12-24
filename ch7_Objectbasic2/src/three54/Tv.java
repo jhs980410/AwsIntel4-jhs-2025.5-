@@ -1,4 +1,4 @@
-package three15;
+package three54;
 
 public class Tv {
 	// TV 속성들(인스턴스 변수)

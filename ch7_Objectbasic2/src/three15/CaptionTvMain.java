@@ -1,19 +1,22 @@
 package three15;
 
-public class CaptionTvMain{
-
+public class CaptionTvMain {
+	
 	public static void main(String[] args) {
-		
-		CaptionTv captionTv = new CaptionTv();
 
+		CaptionTv captionTv = new CaptionTv();
+		
 		captionTv.channel = 10;
+		
 		captionTv.channelUp();
 		System.out.println(captionTv.channel);
 		
-		captionTv.displayCaption("Hello world");
+		captionTv.displayCaption("Hello World"); 
 		
-		captionTv.caqtion = true;
+		captionTv.caption = true;
+		captionTv.displayCaption("Hello World");
 		
-		captionTv.displayCaption("Hello world");
 	}
+	
+	
 }
