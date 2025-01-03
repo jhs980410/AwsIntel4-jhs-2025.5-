@@ -4,23 +4,50 @@ public class ArenaRule {
 
 	// 2장의 카드 합산 결과를 돌려준다
 	public static int getCardToJumsu(Card[] cardArr) {
-		// 카드 변수
+	    int scoreSum = 0;
 
-		String card = "";
-		// 카드 점수 합산 변수
-		int scoreSum = 0;
+	    for (Card card : cardArr) {
+	    	//카드에서 문자열 하나하나 가져옴 , ex: ◆6
+	        String cardStr = card.getCard();
+	        // 카드 문자열 삽입 
+	        String cardNumber = cardStr.substring(1); // 카드의 숫자 부분만 추출
+	        // 카드 0다음 1번 문자열추출후 삽입 / 
+	        
+	        // 숫자에 따라 점수 부여
+	        switch (cardNumber) {
+	            case "A":
+	                scoreSum += 1;
+	                break;
+	            case "T":
+	                scoreSum += 10;
+	                break;
+	            case "J":
+	                scoreSum += 11;
+	                break;
+	            case "Q":
+	                scoreSum += 12;
+	                break;
+	            case "K":
+	                scoreSum += 13;
+	                break;
+	                // 숫자 카드의 경우 그 숫자만큼 점수 부여
+	            case "2" :
+	            case "3" :
+	            case "4" :
+	            case "5" :
+	            case "6" :
+	            case "7" :
+	            case "8" :
+	            case "9" :
+	            	scoreSum += Integer.parseInt(cardNumber);
+	            	//문자열 "2" 를 정수타입으로 변경 
+	                break;
+	        }
+	        
+	      
+	    }
 
-		if (cardArr.equals(Card.number)) {
-			for (int i = 0; i < Card.number.length; i++) {
-				scoreSum = scoreSum +  Card.number[i].length();
-				System.out.println(Card.number[i].length());
-			}
-		}
-
-		// 카드 2장의 합산 결과 반환
-		// A카드는 1, T카드는 10, J카드는 11, Q카드는 12, K카드는 13점이며
-		// 나머지 카드는 숫자의 의미대로 점수를 부여한다. ex) 2카드는 2점
-		return scoreSum;
+	    return scoreSum;
 	}
 
 	// 2사람의 카드 결과를 평가한다.
@@ -50,10 +77,10 @@ public class ArenaRule {
 
 		for (int i = 0; i < yourCardArr.length; i++) {
 			mySb.append("<" + (i + 1) + "번째 카드> ");
-			mySb.append(myCardArr[i].getCard() + " ");
+			mySb.append(myCardArr[i].getClass() + " ");
 
 			yourSb.append("<" + (i + 1) + "번째 카드> ");
-			yourSb.append(yourCardArr[i].getCard() + " ");
+			yourSb.append(yourCardArr[i].getClass() + " ");
 		}
 
 		System.out.print(my.getName() + ": " + mySb.toString() + "= " + my.getScore() + " vs ");

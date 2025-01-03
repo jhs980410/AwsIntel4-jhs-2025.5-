@@ -43,4 +43,17 @@ public class CardCase {
 		}
 	}
 
+	public Card drawCard() {
+		if (!cardList.isEmpty()) {
+			// 객체가 있니? //
+			 Card card = cardList.get(cardList.size() - 1);
+            cardList.remove(cardList.size() - 1); // 뽑은 카드를 덱에서 제거
+            return card;
+		}else {
+			return null;
+		}
+		
+		
+	}
+
 }

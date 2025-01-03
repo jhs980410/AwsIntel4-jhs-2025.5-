@@ -1,5 +1,8 @@
 package hk.exam.seven;
 
+import java.util.List;
+import java.util.Random;
+
 public class Player {
 
 	private String name = ""; // 이름
@@ -7,7 +10,7 @@ public class Player {
 	private int score = 0;		// 2개의 카드를 더한 점수
 	private boolean winner = false; // 승자가 누구인지 기록 (true 승자, false 패자)
 	private Card[] myChoiceCards = null; // 내가 선택한 2장의 카드
-	
+	CardCase cardCase = new CardCase();
 
 	// 생성자 (멤버변수 초기화)
 	public Player(String name, int age) {
@@ -63,8 +66,8 @@ public class Player {
 	public Card[] drawCard() {
 		
 		for (int i = 0; i < myChoiceCards.length; i++) {
-			this.myChoiceCards[i] = new Card();
-			
+			this.myChoiceCards[i] = cardCase.drawCard();
+
 		}
 		
 		return myChoiceCards;
@@ -76,8 +79,18 @@ public class Player {
 	// 카드 섞기
 	public void shuffle() {
 		
-		CardCase cardCase = new CardCase();
-		cardCase.init();
+		Random random = new Random();
+		List<Card> cardList = cardCase.getCardList();
+		
+		for (int i = 0; i < cardList.size(); i++) {
+			int randomdeck = random.nextInt(cardList.size());
+			Card temp = cardList.get(i);
+			cardList.set(i, cardList.get(randomdeck));
+			cardList.set(randomdeck, temp);
+			
+		}
+		
+		
 		
 	}
 

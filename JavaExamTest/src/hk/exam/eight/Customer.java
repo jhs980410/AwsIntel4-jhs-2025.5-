@@ -8,7 +8,7 @@ public class Customer {
 	private String name = ""; // 이름
 	private int age = 0; // 나이
 	private double money = 0.0;  // 소지금
-	private double myBonusPoint = 0.0; // 보너스 보인트
+	private double myBonusPoint = 0.0; // 보너스 포인트
 	private ArrayList<Product> productList = null; // 구매한 제품들
 	
 	public Customer(String name, int age, int money){
@@ -83,5 +83,7 @@ public class Customer {
 		
 		return builder.toString();
 	}
+
+	
 		
 }

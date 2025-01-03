@@ -28,10 +28,21 @@ public class Card {
 	public void init(int shapeIndex, int numberIndex){
 		card = shape[shapeIndex] + number[numberIndex]; // ♥7, ♣4와 같은 모양이 됨
 	}
+
 	
-	// 카드 한장 뽑기
-	public String getCard(){
+
+	public void setCard(String card) {
+		this.card = card;
+	}
+
+	public String getCard() {
+		
 		return card;
 	}
+
+	
+	
+	// 카드 한장 뽑기
+	
 	
 }

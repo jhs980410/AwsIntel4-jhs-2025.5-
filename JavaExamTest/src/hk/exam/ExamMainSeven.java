@@ -10,7 +10,7 @@ public class ExamMainSeven {
 		// TODO Auto-generated method stub
 		
 		// 이름, 나이 생성
-		Player you = new Player("젤잘나가", 26);
+		Player you = new Player("젤잘나가", 26 );
 		Player my = new Player("안졸리나제리", 24);
 		
 		// 경기에 이용할 카드 2장
